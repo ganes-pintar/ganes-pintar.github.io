@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV Portofolio - [Nama Anda]</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #FF7E5F;
+            --primary-light: #FF9A8B;
+            --secondary: #2C3E50;
+            --accent: #F9A826;
+            --light-bg: #FFF9F5;
+            --light-gray: #F5F7FA;
+            --text: #333333;
+            --text-light: #666666;
+            --white: #FFFFFF;
+            --shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            --border-radius: 10px;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: var(--light-bg);
+            padding: 0;
+            margin: 0;
+        }
+        
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* Header & Profile */
+        header {
+            background: linear-gradient(135deg, var(--secondary) 0%, #1a2530 100%);
+            color: var(--white);
+            padding: 40px 0;
+            border-bottom-left-radius: 30px;
+            border-bottom-right-radius: 30px;
+            margin-bottom: 40px;
+            box-shadow: var(--shadow);
+        }
+        
+        .profile-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .profile-img {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid var(--primary);
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .name-title h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.5rem;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+        
+        .name-title h2 {
+            font-size: 1.4rem;
+            font-weight: 500;
+            color: var(--primary-light);
+            margin-bottom: 20px;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 1rem;
+        }
+        
+        .contact-item i {
+            color: var(--accent);
+        }
+        
+        /* Section Styling */
+        section {
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease;
+        }
+        
+        section:hover {
+            transform: translateY(-5px);
+        }
+        
+        .section-title {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+            padding-bottom: 12px;
+            border-bottom: 3px solid var(--primary-light);
+        }
+        
+        .section-title i {
+            background-color: var(--primary);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-size: 1.2rem;
+        }
+        
+        .section-title h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.6rem;
+            color: var(--secondary);
+            font-weight: 600;
+        }
+        
+        /* Profile Section */
+        .profile-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-light);
+            padding-left: 10px;
+            border-left: 4px solid var(--primary-light);
+        }
+        
+        /* Education & Experience */
+        .timeline-item {
+            margin-bottom: 30px;
+            padding-left: 20px;
+            border-left: 2px solid var(--primary);
+            position: relative;
+        }
+        
+        .timeline-item:before {
+            content: '';
+            position: absolute;
+            left: -8px;
+            top: 5px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: var(--primary);
+        }
+        
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-bottom: 8px;
+        }
+        
+        .item-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--secondary);
+        }
+        
+        .item-date {
+            background-color: var(--light-gray);
+            color: var(--primary);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        
+        .item-subtitle {
+            color: var(--primary);
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+        
+        .item-details {
+            color: var(--text-light);
+            margin-bottom: 8px;
+        }
+        
+        .item-details li {
+            margin-bottom: 5px;
+            margin-left: 20px;
+        }
+        
+        /* Skills */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .skill-category {
+            margin-bottom: 20px;
+        }
+        
+        .skill-category h4 {
+            font-family: 'Poppins', sans-serif;
+            color: var(--secondary);
+            margin-bottom: 12px;
+            font-size: 1.2rem;
+        }
+        
+        .skill-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .skill-tag {
+            background-color: var(--light-gray);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+        
+        .skill-tag:hover {
+            background-color: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        /* Portfolio & Links */
+        .links-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .link-card {
+            flex: 1;
+            min-width: 200px;
+            background-color: var(--light-gray);
+            border-radius: var(--border-radius);
+            padding: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .link-card:hover {
+            background-color: var(--primary);
+            transform: translateY(-5px);
+        }
+        
+        .link-card:hover a, .link-card:hover i {
+            color: white;
+        }
+        
+        .link-card i {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        .link-card a {
+            text-decoration: none;
+            color: var(--secondary);
+            font-weight: 600;
+            display: block;
+            word-break: break-all;
+        }
+        
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 25px 0;
+            margin-top: 30px;
+            color: var(--text-light);
+            font-size: 0.9rem;
+            border-top: 1px solid #eee;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .profile-container {
+                padding: 0 20px;
+            }
+            
+            .name-title h1 {
+                font-size: 2rem;
+            }
+            
+            .name-title h2 {
+                font-size: 1.2rem;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            section {
+                padding: 20px;
+            }
+            
+            .item-header {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .links-container {
+                flex-direction: column;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .profile-img {
+                width: 130px;
+                height: 130px;
+            }
+            
+            .name-title h1 {
+                font-size: 1.8rem;
+            }
+            
+            .section-title h3 {
+                font-size: 1.4rem;
+            }
+        }
+        
+        /* Print Styles */
+        @media print {
+            header {
+                background: var(--secondary) !important;
+                -webkit-print-color-adjust: exact;
+            }
+            
+            section {
+                box-shadow: none;
+                page-break-inside: avoid;
+            }
+            
+            .link-card {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="profile-container">
+                <!-- Ganti dengan foto Anda atau hapus tag img jika tidak ada foto -->
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80" alt="Foto Profil" class="profile-img">
+                
+                <div class="name-title">
+                    <h1>Budi Santoso</h1>
+                    <h2>Calon Magang | Digital Marketing & Business Development</h2>
+                </div>
+                
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Jakarta, Indonesia</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>0812-3456-7890</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>budi.santoso@emailku.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-globe"></i>
+                        <span>linkedin.com/in/budisantoso</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <main class="container">
+        <!-- Profil Singkat -->
+        <section id="profile">
+            <div class="section-title">
+                <i class="fas fa-user"></i>
+                <h3>Profil Singkat</h3>
+            </div>
+            <div class="profile-text">
+                <p>Mahasiswa Bisnis Manajemen semester 6 dengan minat kuat pada pemasaran digital dan pengembangan bisnis. Berpengalaman dalam mengelola media sosial organisasi kampus dan proyek analisis pasar untuk tugas kuliah. Bersemangat untuk menerapkan teori bisnis dalam dunia nyata, serta berkontribusi dalam tim yang dinamis melalui program magang.</p>
+            </div>
+        </section>
+        
+        <!-- Pendidikan -->
+        <section id="education">
+            <div class="section-title">
+                <i class="fas fa-graduation-cap"></i>
+                <h3>Pendidikan</h3>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="item-header">
+                    <div class="item-title">Universitas Mercu Buana, Jakarta</div>
+                    <div class="item-date">2021 - Sekarang</div>
+                </div>
+                <div class="item-subtitle">S1 Manajemen | IPK: 3.62/4.00</div>
+                <ul class="item-details">
+                    <li><strong>Relevan Kursus:</strong> Pemasaran Digital, Manajemen Strategik, Perilaku Konsumen, Analisis Bisnis, Kewirausahaan</li>
+                    <li><strong>Pencapaian:</strong> Penerima Beasiswa Unggulan Kampus (2022-2023)</li>
+                </ul>
+            </div>
+        </section>
+        
+        <!-- Pengalaman & Proyek -->
+        <section id="experience">
+            <div class="section-title">
+                <i class="fas fa-briefcase"></i>
+                <h3>Pengalaman & Proyek Relevan</h3>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="item-header">
+                    <div class="item-title">Proyek Analisis Pasar: Potensi Bisnis Kopi Susu</div>
+                    <div class="item-date">Feb 2024</div>
+                </div>
+                <div class="item-subtitle">Analisis Pasar & Proposal Bisnis</div>
+                <ul class="item-details">
+                    <li>Melakukan survei terhadap 150 mahasiswa untuk memahami perilaku konsumsi dan kesediaan membeli</li>
+                    <li>Menganalisis data menggunakan Excel untuk mengidentifikasi segmen pelanggan dan titik harga optimal</li>
+                    <li><strong>Hasil:</strong> Menyusun proposal bisnis yang menunjukkan peluang pasar dengan prospek kepuasan 85%</li>
+                </ul>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="item-header">
+                    <div class="item-title">Kampanye Media Sosial "Kreatif Nusantara"</div>
+                    <div class="item-date">Agu - Des 2023</div>
+                </div>
+                <div class="item-subtitle">Manajer Media Sosial - HIMA Manajemen</div>
+                <ul class="item-details">
+                    <li>Mengelola akun Instagram organisasi HIMA Manajemen (@himaman_umb)</li>
+                    <li>Meningkatkan interaksi (likes & comments) rata-rata sebesar 40% dalam 3 bulan</li>
+                    <li><strong>Pelajaran:</strong> Memahami algoritma Instagram, analisis insights, kerja sama dengan konten kreator</li>
+                </ul>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="item-header">
+                    <div class="item-title">Koordinator Acara "Business Case Competition 2023"</div>
+                    <div class="item-date">Mar 2023</div>
+                </div>
+                <div class="item-subtitle">Koordinator Divisi Logistik</div>
+                <ul class="item-details">
+                    <li>Memimpin divisi logistik dengan 8 anggota untuk memastikan ketersediaan venue dan peralatan</li>
+                    <li>Berhasil menyelenggarakan acara dengan 30 tim peserta dari berbagai universitas</li>
+                    <li><strong>Pelajaran:</strong> Negosiasi dengan vendor, manajemen risiko, koordinasi tim di bawah tekanan waktu</li>
+                </ul>
+            </div>
+        </section>
+        
+        <!-- Keterampilan -->
+        <section id="skills">
+            <div class="section-title">
+                <i class="fas fa-tools"></i>
+                <h3>Keterampilan</h3>
+            </div>
+            
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h4>Digital & Analitis</h4>
+                    <div class="skill-list">
+                        <div class="skill-tag">Microsoft Excel</div>
+                        <div class="skill-tag">Google Analytics (Dasar)</div>
+                        <div class="skill-tag">Canva</div>
+                        <div class="skill-tag">Meta Business Suite</div>
+                        <div class="skill-tag">Social Media Listening</div>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h4>Bisnis & Soft Skills</h4>
+                    <div class="skill-list">
+                        <div class="skill-tag">Riset Pasar</div>
+                        <div class="skill-tag">Proposal Bisnis</div>
+                        <div class="skill-tag">Komunikasi Presentasi</div>
+                        <div class="skill-tag">Problem Solving</div>
+                        <div class="skill-tag">Kerja Tim</div>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h4>Bahasa</h4>
+                    <div class="skill-list">
+                        <div class="skill-tag">Bahasa Indonesia (Native)</div>
+                        <div class="skill-tag">Bahasa Inggris (Aktif - TOEFL: 540)</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Portofolio & Link -->
+        <section id="portfolio">
+            <div class="section-title">
+                <i class="fas fa-link"></i>
+                <h3>Portofolio & Link</h3>
+            </div>
+            
+            <div class="links-container">
+                <div class="link-card">
+                    <i class="fas fa-folder-open"></i>
+                    <a href="https://bit.ly/portofoliobudis" target="_blank">Portofolio Proyek</a>
+                    <p>Slide proposal bisnis, laporan analisis, konten desain</p>
+                </div>
+                
+                <div class="link-card">
+                    <i class="fab fa-linkedin"></i>
+                    <a href="https://linkedin.com/in/budisantoso" target="_blank">LinkedIn Profil</a>
+                    <p>Koneksi profesional & pengalaman</p>
+                </div>
+                
+                <div class="link-card">
+                    <i class="fab fa-medium"></i>
+                    <a href="https://medium.com/@budisantoso" target="_blank">Artikel & Blog</a>
+                    <p>Tulisan tentang tren bisnis milenial</p>
+                </div>
+                
+                <div class="link-card">
+                    <i class="fab fa-github"></i>
+                    <a href="https://github.com/username" target="_blank">GitHub</a>
+                    <p>Repositori proyek dan kode</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Pengembangan Diri -->
+        <section id="development">
+            <div class="section-title">
+                <i class="fas fa-certificate"></i>
+                <h3>Pengembangan Diri</h3>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="item-header">
+                    <div class="item-title">Dasar-Dasar Digital Marketing</div>
+                    <div class="item-date">Jan 2024</div>
+                </div>
+                <div class="item-subtitle">Google Digital Garage</div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="item-header">
+                    <div class="item-title">Excel for Business</div>
+                    <div class="item-date">Nov 2023</div>
+                </div>
+                <div class="item-subtitle">Coursera</div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="item-header">
+                    <div class="item-title">Webinar "Branding di Era TikTok"</div>
+                    <div class="item-date">Sep 2023</div>
+                </div>
+                <div class="item-subtitle">Marketing Indonesia</div>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <p>CV Portofolio untuk Magang | &copy; 2023 Budi Santoso</p>
+            <p>Dibuat dengan HTML, CSS, dan <i class="fas fa-heart" style="color: var(--primary);"></i></p>
+        </div>
+    </footer>
+
+    <script>
+        // Efek smooth scroll untuk navigasi (jika ingin ditambahkan menu navigasi)
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 20,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Menambahkan tahun otomatis di footer
+        document.addEventListener('DOMContentLoaded', function() {
+            const yearSpan = document.getElementById('current-year');
+            if(yearSpan) {
+                yearSpan.textContent = new Date().getFullYear();
+            }
+            
+            // Efek hover pada section
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => {
+                section.addEventListener('mouseenter', function() {
+                    this.style.boxShadow = '0 10px 25px rgba(0, 0, 0, 0.12)';
+                });
+                
+                section.addEventListener('mouseleave', function() {
+                    this.style.boxShadow = 'var(--shadow)';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
