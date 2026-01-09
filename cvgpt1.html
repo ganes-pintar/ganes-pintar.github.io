@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CV | Budi Santoso</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+  <style>
+    :root {
+      --primary: #4f7cff;
+      --primary-soft: #eaf0ff;
+      --warm-accent: #ffb703;
+      --dark: #1f2937;
+      --gray: #6b7280;
+      --bg: #f8fafc;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--bg);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: var(--primary);
+      transition: all 0.3s ease;
+    }
+
+    a:hover {
+      color: #2c5cff;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 40px auto;
+      background: #fff;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    }
+
+    /* Header */
+    .header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      padding: 40px;
+      background: linear-gradient(135deg, var(--primary), #6fa8ff);
+      color: #fff;
+    }
+
+    .profile-img {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 5px solid rgba(255,255,255,0.6);
+      margin-right: 30px;
+      transition: transform 0.3s ease;
+    }
+
+    .profile-img:hover {
+      transform: scale(1.05);
+    }
+
+    .header-info h1 {
+      font-size: 2rem;
+      font-weight: 600;
+    }
+
+    .header-info h2 {
+      font-size: 1rem;
+      font-weight: 400;
+      opacity: 0.9;
+      margin-top: 6px;
+    }
+
+    .contact {
+      margin-top: 12px;
+      font-size: 0.9rem;
+    }
+
+    .contact i {
+      margin-right: 8px;
+      color: var(--warm-accent);
+    }
+
+    /* Content */
+    .content {
+      padding: 40px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+    }
+
+    section {
+      margin-bottom: 20px;
+    }
+
+    section h3 {
+      font-size: 1.1rem;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--primary);
+    }
+
+    section h3 i {
+      color: var(--warm-accent);
+    }
+
+    .card {
+      background: var(--primary-soft);
+      padding: 20px;
+      border-radius: 12px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 20px rgba(79,124,255,0.2);
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    ul li {
+      margin-bottom: 8px;
+      font-size: 0.95rem;
+      color: var(--dark);
+    }
+
+    .skills span {
+      display: inline-block;
+      background: #fff;
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      margin: 6px 6px 0 0;
+      border: 1px solid var(--primary);
+      transition: background 0.3s ease;
+    }
+
+    .skills span:hover {
+      background: var(--primary);
+      color: #fff;
+    }
+
+    .links a {
+      display: inline-block;
+      margin-right: 12px;
+      margin-bottom: 6px;
+      font-size: 0.9rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .header {
+        text-align: center;
+      }
+
+      .profile-img {
+        margin: 0 0 20px 0;
+      }
+
+      .content {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <!-- Header -->
+    <div class="header">
+      <!-- Dummy image, bisa diganti -->
+      <img src="https://via.placeholder.com/300x300.png?text=Profile+Photo" alt="Foto Profil" class="profile-img">
+
+      <div class="header-info">
+        <h1>Budi Santoso</h1>
+        <h2>Calon Magang | Digital Marketing & Business Development</h2>
+
+        <div class="contact">
+          <div><i class="fas fa-map-marker-alt"></i> Jakarta</div>
+          <div><i class="fas fa-phone"></i> 0812-3456-7890</div>
+          <div><i class="fas fa-envelope"></i> budi.santoso@emailku.com</div>
+          <div><i class="fab fa-linkedin"></i> linkedin.com/in/budisantoso</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Content -->
+    <div class="content">
+      <!-- Ringkasan -->
+      <section>
+        <h3><i class="fas fa-user"></i> Ringkasan</h3>
+        <div class="card">
+          <p>
+            Mahasiswa S1 Manajemen dengan minat kuat pada digital marketing dan pengembangan bisnis.
+            Terbiasa melakukan analisis pasar, pengelolaan media sosial, serta koordinasi proyek
+            berbasis tim. Berorientasi pada data, kreatif, dan siap belajar di lingkungan profesional.
+          </p>
+        </div>
+      </section>
+
+      <!-- Pendidikan -->
+      <section>
+        <h3><i class="fas fa-graduation-cap"></i> Pendidikan</h3>
+        <div class="card">
+          <strong>S1 Manajemen</strong><br/>
+          Universitas Mercu Buana<br/>
+          IPK: 3.62
+        </div>
+      </section>
+
+      <!-- Pengalaman Proyek -->
+      <section>
+        <h3><i class="fas fa-briefcase"></i> Pengalaman Proyek</h3>
+        <div class="card">
+          <ul>
+            <li>Analisis pasar untuk produk UMKM berbasis data kompetitor</li>
+            <li>Pengelolaan dan perencanaan konten media sosial</li>
+            <li>Koordinator tim pada event organization skala kampus</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Skills -->
+      <section>
+        <h3><i class="fas fa-cogs"></i> Skills</h3>
+        <div class="card skills">
+          <span>Market Analysis</span>
+          <span>Social Media Strategy</span>
+          <span>Content Planning</span>
+          <span>Business Development</span>
+          <span>Public Speaking</span>
+          <span>Team Collaboration</span>
+        </div>
+      </section>
+
+      <!-- Portofolio -->
+      <section>
+        <h3><i class="fas fa-folder-open"></i> Portofolio</h3>
+        <div class="card links">
+          <a href="#" target="_blank"><i class="fab fa-behance"></i> Behance / Google Drive</a><br/>
+          <a href="#" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a><br/>
+          <a href="#" target="_blank"><i class="fab fa-medium"></i> Medium</a><br/>
+          <a href="#" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+        </div>
+      </section>
+
+      <!-- Sertifikasi -->
+      <section>
+        <h3><i class="fas fa-certificate"></i> Sertifikasi</h3>
+        <div class="card">
+          <ul>
+            <li>Digital Marketing Fundamentals</li>
+            <li>Business Strategy Basics</li>
+          </ul>
+        </div>
+      </section>
+    </div>
+  </div>
+
+</body>
+</html>
