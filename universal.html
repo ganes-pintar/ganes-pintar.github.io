@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Festival Seni & Olahraga · UNIVERSAL2026</title>
+    <!-- Google Fonts: Poppins untuk kesan modern dan friendly -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #fefaf5;  /* latar hangat cerah */
+            color: #1e2a41;              /* biru tua untuk teks utama */
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        /* BANNER 16:9 — tanpa teks, full width */
+        .banner {
+            width: 100%;
+            background-color: #2b3a67;  /* fallback jika gambar gagal dimuat */
+            line-height: 0;              /* hilangkan spasi di bawah gambar */
+        }
+        .banner img {
+            display: block;
+            width: 100%;
+            height: auto;
+            aspect-ratio: 16 / 9;        /* jaga rasio 16:9, gambar akan menyesuaikan */
+            object-fit: cover;            /* pastikan gambar terpotong proporsional jika diperlukan */
+        }
+
+        /* kontainer utama */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+
+        /* setiap section diberi jarak */
+        section {
+            margin-bottom: 3.5rem;
+        }
+
+        /* heading style */
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #e15554;               /* merah menyala */
+            line-height: 1.2;
+            margin-bottom: 0.25rem;
+        }
+
+        h2 {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #4c9a8a;               /* hijau tosca */
+            border-left: 8px solid #ffb347; /* aksen jingga */
+            padding-left: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        h3 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #e15554;
+            margin-bottom: 0.75rem;
+        }
+
+        h4 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #2b3a67;
+            margin-bottom: 0.25rem;
+        }
+
+        /* header profil (profile) */
+        .profile {
+            background: linear-gradient(145deg, #ffffff 0%, #fff7e8 100%);
+            padding: 2rem 2rem 1.8rem 2rem;
+            border-radius: 32px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            border: 1px solid rgba(255,180,71,0.2);
+        }
+        .theme {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #4c9a8a;
+            margin-bottom: 1.2rem;
+            font-style: italic;
+        }
+        .info p {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .info p strong {
+            min-width: 80px;
+            color: #2b3a67;
+        }
+
+        /* deskripsi */
+        .description p {
+            background: #ffffff;
+            padding: 1.8rem 2rem;
+            border-radius: 24px;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.03);
+            font-size: 1.1rem;
+            border: 1px solid #ffe8d4;
+        }
+
+        /* daftar kegiatan (jadwal) dengan grid */
+        .schedule-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 2rem;
+            margin-top: 1.5rem;
+        }
+        .card {
+            background: white;
+            padding: 1.8rem 1.5rem;
+            border-radius: 30px;
+            box-shadow: 0 12px 22px -8px rgba(225, 85, 84, 0.15);
+            transition: transform 0.25s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(255, 180, 71, 0.2);
+        }
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 22px 30px -8px rgba(225, 85, 84, 0.3);
+        }
+        .card h3 {
+            color: #e15554;
+            border-bottom: 3px solid #ffb347;
+            display: inline-block;
+            padding-bottom: 6px;
+            margin-bottom: 1.2rem;
+        }
+        .card ul {
+            list-style: none;
+        }
+        .card ul li {
+            margin-bottom: 0.8rem;
+            padding-left: 1.8rem;
+            position: relative;
+            font-weight: 400;
+        }
+        .card ul li::before {
+            content: "⚡";
+            position: absolute;
+            left: 0;
+            color: #ffb347;
+            font-size: 1.2rem;
+        }
+
+        /* formulir pendaftaran */
+        .registration {
+            background: linear-gradient(120deg, #f9f3e9, #fffcf5);
+            padding: 2.5rem 2rem;
+            border-radius: 40px;
+            box-shadow: 0 15px 25px rgba(76, 154, 138, 0.1);
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            max-width: 700px;
+            margin: 2rem auto 0;
+        }
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        .form-group label {
+            font-weight: 600;
+            color: #2b3a67;
+            font-size: 1.1rem;
+        }
+        input, select, textarea {
+            font-family: 'Poppins', sans-serif;
+            padding: 0.9rem 1.2rem;
+            border: 2px solid #f0dac8;
+            border-radius: 50px;
+            font-size: 1rem;
+            background: white;
+            transition: border-color 0.2s, box-shadow 0.2s;
+            outline: none;
+        }
+        input:focus, select:focus {
+            border-color: #ffb347;
+            box-shadow: 0 0 0 4px rgba(255, 180, 71, 0.25);
+        }
+        .btn {
+            background: #e15554;
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 60px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+            box-shadow: 0 8px 18px rgba(225, 85, 84, 0.3);
+            align-self: center;
+            min-width: 240px;
+        }
+        .btn:hover {
+            background: #c13d3c;
+            transform: scale(1.03);
+            box-shadow: 0 12px 22px rgba(193, 61, 60, 0.4);
+        }
+
+        /* kontak panitia */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.8rem;
+            margin-top: 1.8rem;
+        }
+        .contact-item {
+            background: white;
+            padding: 1.8rem 1.2rem;
+            border-radius: 28px;
+            text-align: center;
+            box-shadow: 0 8px 18px rgba(0,0,0,0.03);
+            transition: transform 0.2s, background 0.2s;
+            border: 1px solid #ffebd2;
+        }
+        .contact-item:hover {
+            transform: scale(1.02);
+            background: #fff4e6;
+            box-shadow: 0 12px 22px rgba(255, 180, 71, 0.2);
+        }
+        .contact-item h4 {
+            color: #4c9a8a;
+            font-size: 1.2rem;
+            margin-bottom: 0.4rem;
+        }
+        .contact-item p {
+            font-weight: 400;
+            word-break: break-word;
+        }
+
+        /* footer */
+        footer {
+            background: #2b3a67;
+            color: #f0e5d5;
+            text-align: center;
+            padding: 1.8rem 1rem;
+            font-size: 1rem;
+            margin-top: 3rem;
+        }
+        footer p {
+            opacity: 0.9;
+        }
+
+        /* extra: responsif untuk layar kecil */
+        @media (max-width: 600px) {
+            h1 { font-size: 2rem; }
+            h2 { font-size: 1.7rem; }
+            .container { padding: 1.5rem 1rem; }
+            .profile { padding: 1.5rem; }
+            .info p { flex-direction: column; align-items: start; gap: 0.2rem; }
+            .btn { width: 100%; }
+            .contact-grid { grid-template-columns: 1fr; }
+        }
+
+        /* sentuhan dinamis: garis bawah kuning pada judul */
+        .section-title {
+            display: inline-block;
+            position: relative;
+        }
+        /* untuk efek ekstra hover di card jadwal sudah di atas */
+    </style>
+</head>
+<body>
+    <!-- BANNER 16:9 (tanpa teks apapun) -->
+    <div class="banner">
+        <!-- GANTI LINK INI DENGAN GAMBAR BANNER ASLI ANDA (16:9) -->
+        <img src="https://picsum.photos/1600/900?random=10" alt="Banner Festival Seni & Olahraga UNIVERSAL2026">
+        <!-- ^^ gambar dummy dari picsum, nanti ganti dengan URL banner sesungguhnya -->
+    </div>
+
+    <main class="container">
+        <!-- 1. HEADER PROFIL (nama, tema, info singkat) -->
+        <section class="profile">
+            <h1>FESTIFAL SENI & OLAHRAGA “UNIVERSAL2026”</h1>
+            <p class="theme">“kreasi Tanpa Batas, prestasi gemilang”</p>
+            <div class="info">
+                <p><strong>Tanggal:</strong> 15-18 Februari 2026</p>
+                <p><strong>Tempat:</strong> SMA UNIVERSAL, Lapangan utama sekolah</p>
+                <p><strong>Konsep:</strong> Acara tahunan yang memadukan pertunjukan seni dan kompetisi olahraga antar kelas</p>
+            </div>
+        </section>
+
+        <!-- 2. DESKRIPSI ACARA -->
+        <section class="description">
+            <h2>Deskripsi Acara</h2>
+            <p>✨ Festival Seni & Olahraga UNIVERSAL2026 adalah ajang tahunan paling dinanti di SMA Universal. Mengusung semangat “Kreasi Tanpa Batas, Prestasi Gemilang”, acara ini menjadi wadah bagi seluruh siswa untuk menyalurkan bakat, baik di bidang seni pertunjukan, seni rupa, maupun olahraga. Dengan rangkaian kegiatan selama empat hari, kami mengajak semua elemen sekolah untuk berkolaborasi, berkompetisi secara sehat, dan merayakan keberagaman kreativitas. Dari futsal hingga drama musikal, dari pameran seni hingga festival kuliner — semua ada di sini! Mari jadikan UNIVERSAL2026 sebagai kenangan tak terlupakan. 🎨⚽🎭</p>
+        </section>
+
+        <!-- 3. DAFTAR KEGIATAN (JADWAL) -->
+        <section class="schedule">
+            <h2>📅 Jadwal Kegiatan</h2>
+            <div class="schedule-grid">
+                <div class="card">
+                    <h3>Hari 1 · 15 Feb</h3>
+                    <ul>
+                        <li>Upacara pembukaan</li>
+                        <li>Lomba futsal putra</li>
+                        <li>Pentas musik</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>Hari 2 · 16 Feb</h3>
+                    <ul>
+                        <li>Lomba basket</li>
+                        <li>Pameran karya seni rupa</li>
+                        <li>Drama musikal</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>Hari 3 · 17 Feb</h3>
+                    <ul>
+                        <li>Lomba estafet</li>
+                        <li>Festival kuliner</li>
+                        <li>Malam puncak dan penutupan</li>
+                    </ul>
+                </div>
+            </div>
+            <!-- catatan: kegiatan hari ke-4? data hanya 3 hari, jadi kita ikuti data -->
+        </section>
+
+        <!-- 4. FORMULIR PENDAFTARAN -->
+        <section class="registration">
+            <h2>📋 Formulir Pendaftaran</h2>
+            <p style="text-align: center; margin-bottom: 0.5rem;">Isi data dirimu untuk ikut meramaikan festival! (dummy, tidak terkirim)</p>
+            <form action="#" method="post">
+                <div class="form-group">
+                    <label for="nama">Nama Lengkap *</label>
+                    <input type="text" id="nama" name="nama" placeholder="Contoh: Alexa Putri" required>
+                </div>
+                <div class="form-group">
+                    <label for="kelas">Kelas *</label>
+                    <select id="kelas" name="kelas" required>
+                        <option value="" disabled selected>-- Pilih kelas --</option>
+                        <option value="X">X</option>
+                        <option value="XI IPA 1">XI IPA 1</option>
+                        <option value="XI IPA 2">XI IPA 2</option>
+                        <option value="XI IPA 3">XI IPA 3</option>
+                        <option value="XI IPS 1">XI IPS 1</option>
+                        <option value="XI IPS 2">XI IPS 2</option>
+                        <option value="XII IPA">XII IPA</option>
+                        <option value="XII IPS">XII IPS</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="wa">Nomor WhatsApp *</label>
+                    <input type="tel" id="wa" name="wa" placeholder="08123456789" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email *</label>
+                    <input type="email" id="email" name="email" placeholder="siswa@contoh.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="kegiatan">Kegiatan yang diminati (opsional)</label>
+                    <input type="text" id="kegiatan" name="kegiatan" placeholder="Misal: Futsal, Pentas Musik, Dll.">
+                </div>
+                <button type="submit" class="btn">✨ Daftar Sekarang ✨</button>
+            </form>
+            <p style="font-size: 0.9rem; text-align: center; margin-top: 1.5rem; color: #4c9a8a;">* formulir ini hanya contoh, data tidak disimpan</p>
+        </section>
+
+        <!-- 5. INFORMASI KONTAK PANITIA -->
+        <section class="contact">
+            <h2>📞 Kontak Panitia</h2>
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <h4>Ketua</h4>
+                    <p>Raymond Nugraha<br> (XI IPA 1)</p>
+                </div>
+                <div class="contact-item">
+                    <h4>Sekretaris</h4>
+                    <p>Vonny Dewi<br> (XI IPS 2)</p>
+                </div>
+                <div class="contact-item">
+                    <h4>Bendahara</h4>
+                    <p>Daniel Rangkuti<br> (XI IPA 3)</p>
+                </div>
+                <div class="contact-item">
+                    <h4>Email</h4>
+                    <p>panitia.nusanbangsa2026<br>@smauniversal.sch.id</p>
+                </div>
+                <div class="contact-item">
+                    <h4>Instagram</h4>
+                    <p>@festivalnusabangsa2026</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 6. FOOTER -->
+    <footer>
+        <p>© 2026 Panitia Festival Seni & Olahraga UNIVERSAL2026. All rights reserved. <br> SMA Universal · #KreasiTanpaBatas</p>
+    </footer>
+</body>
+</html>
